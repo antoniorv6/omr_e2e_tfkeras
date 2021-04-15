@@ -124,11 +124,17 @@ if __name__ == "__main__":
             XTest = X
             YTest = Y 
     
-    #XTrain, YTrain = shuffle(XTrain, YTrain)
+    XTrain, YTrain = shuffle(XTrain, YTrain)
     XTrain = np.array(XTrain)
     YTrain = np.array(YTrain)
 
+    ### THIS CODE PART IS JUST AN UTILITY THAT GENERATES THE VOCABULARY FOR THE NETWORK
+
     w2i, i2w = check_and_retrieveVocabulary([YTrain, YTest], "./vocab", arguments.codif)
+
+    ###################################################################################
+
+    ## THIS DEPENDS ON HOW HAVE YOU LOADED THE DATA. IF YOU HAVE ONLY ONE DATASET, YOU HAVE TO DO IT ONCE
 
     for i in range(len(XTrain)):
         img = (255. - XTrain[i]) / 255.
